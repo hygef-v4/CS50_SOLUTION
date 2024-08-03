@@ -1,0 +1,11 @@
+sort1 uses: bubble sort
+
+How do you know?: because it run fastest in sorted list (time = n)
+
+sort2 uses: merge sort
+
+How do you know?: run fastest in unsorted list (time = n log n )
+
+sort3 uses: selection sort
+
+How do you know?: slowest in sorted list (time = n^2)
