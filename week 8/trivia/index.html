@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener
+            // Wait for DOM content to load
+            ('DOMContentLoaded', function() {
+
+                // correct answer
+                let correct = document.querySelector('.correct');
+                correct.addEventListener("click", function() {
+                    correct.style.backgroundColor = "green";
+                    document.querySelector("#answer1").innerHTML = "Correct!";
+                })
+                // incorrect answers
+                let incorrect = document.querySelectorAll('.incorrect');
+                for (let i = 0; i < incorrect.length; i++) {
+                    incorrect[i].addEventListener("click", function() {
+                        incorrect[i].style.backgroundColor = "red";
+                        document.querySelector("#answer1").innerHTML = "Incorrect!";
+
+                    })
+                }
+
+                // check response q2
+                document.querySelector("#check").addEventListener("click", function() {
+                    let input = document.querySelector("input")
+                    if (input.value.toLowerCase() == "charles") {
+                        input.style.backgroundColor = "green";
+                        document.querySelector("#answer2").innerHTML = "Correct!";
+
+                    } else {
+                        input.style.backgroundColor = "red";
+                        document.querySelector("#answer2").innerHTML = "Incorrect!";
+                    }
+                })
+            })
+        </script>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Who is the most favourite wafu ? </h3>
+                <button class="incorrect"> Mikasa Ackerman </button>
+                <button class="incorrect"> Nezuko Kamado </button>
+                <button class="correct"> Rem</button>
+                <button class="incorrect"> Asuna </button>
+
+                <p id="answer1"> </p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3> Ai là người đẹp trai nhất ? </h3>
+
+                <form>
+                    <input type="text" placeholder="Nhập tên người đẹp trai nhất">
+                    <button id="check"> Check Answer</button>
+                    <p id="answer2"> </p>
+                </form>
+
+            </div>
+        </div>
+    </body>
+
+</html>

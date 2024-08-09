@@ -6,10 +6,10 @@ while True:
     if height > 0 and height < 9:
         break
 
-for i in range(height):
-    # Print empty spaces (w/out newline)
-    print(" " * ((height - i) - 1), end="")
-    # Print block(s) (w/out newline)
-    print("#" * (i + 1), end="")
-    # Print new line
+for i in range(0, height, 1):
+    for j in range(0, height, 1):
+        if i + j < height - 1:
+            print(" ", end="")
+        else:
+            print("#", end="")
     print()

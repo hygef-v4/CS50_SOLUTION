@@ -1,0 +1,15 @@
++------+-------------------------------------------------+
+| year |                      title                      |
++------+-------------------------------------------------+
+| 2001 | Harry Potter and the Sorcerer's Stone           |
+| 2002 | Harry Potter and the Chamber of Secrets         |
+| 2004 | Harry Potter and the Prisoner of Azkaban        |
+| 2005 | Harry Potter and the Goblet of Fire             |
+| 2006 | Harry Potter und ein Stein                      |
+| 2007 | Harry Potter and the Order of the Phoenix       |
+| 2009 | Harry Potter and the Half-Blood Prince          |
+| 2010 | Harry Potter and the Deathly Hallows: Part 1    |
+| 2011 | Harry Potter and the Deathly Hallows: Part 2    |
+| 2012 | Harry Potter and the Untold Stories of Hogwarts |
+| 2017 | Harry Potter: A History of Magic                |
++------+-------------------------------------------------+
