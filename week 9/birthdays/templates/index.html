@@ -1,0 +1,82 @@
+{% extends "layout.html" %} 
+
+{% block body %}
+<div class="header">
+	<h1>Birthdays</h1>
+</div>
+<div class="container">
+	<div id="add" class="section">
+		<h2>Add a Birthday</h2>
+		<form action="/" method="post">
+			<input autocomplete="off" autofocus name="name" placeholder="Name" type="text" />
+			<input autocomplete="off" autofocus name="month" placeholder="Month" type="number" min="1" max="12" />
+			<input autocomplete="off" autofocus name="day" placeholder="Day" type="number" min="1" max="31" />
+			<button type="submit" title="Add Birthday">Add Birthday</button>
+		</form>
+	</div>
+	<div id="edit" class="section hidden">
+		<h2>Edit a Birthday</h2>
+		<form action="/edit" method="post">
+			<input id="id" name="id" type="hidden" />
+			<input autocomplete="off" autofocus id="name" name="name" placeholder="Name" type="text" />
+			<input autocomplete="off" autofocus id="month" name="month" placeholder="Month" type="number" min="1" max="12" />
+			<input autocomplete="off" autofocus id="day" name="day" placeholder="Day" type="number" min="1" max="31" />
+			<button id="save" class="action-btn" type="submit" title="Save Birthday">Save</button>
+			<button id="cancel" class="action-btn" type="button" title="Cancel Birthday Edition">Cancel</button>
+		</form>
+	</div>
+	<script>
+		document.querySelector('#save').addEventListener('click', () => {
+			document.querySelector('#add').classList.remove('hidden');
+			document.querySelector('#edit').classList.add('hidden');
+		});
+
+		document.querySelector('#cancel').addEventListener('click', () => {
+			document.querySelector('#add').classList.remove('hidden');
+			document.querySelector('#edit').classList.add('hidden');
+		});
+	</script>
+
+	<div class="section">
+		<h2>All Birthdays</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Birthday</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for birthday in birthdays %}
+				<tr>
+					<td>{{ birthday.name }}</td>
+					<td>{{ birthday.month }}/{{ birthday.day }}</td>
+					<td class="actions">
+						<form action="/delete" method="post">
+							<input name="id" type="hidden" value="{{ birthday.id }}" />
+							<button class="action-btn" type="submit" title="Delete Birthday">Delete</button>
+						</form>
+						<button class="action-btn" id="edit-btn-{{ birthday.id }}" title="Edit Birthday">Edit</button>
+					</td>
+					<script>
+						document.querySelector('#edit-btn-{{ birthday.id }}').addEventListener('click', () => {
+							document.querySelector('#add').classList.add('hidden');
+							document.querySelector('#edit').classList.remove('hidden');
+							const name = document.querySelector('#name');
+							const month = document.querySelector('#month');
+							const day = document.querySelector('#day');
+							const id = document.querySelector('#id');
+							name.value = '{{ birthday.name }}';
+							month.value = '{{ birthday.month }}';
+							day.value = '{{ birthday.day }}';
+							id.value = '{{ birthday.id }}';
+						});
+					</script>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %}
